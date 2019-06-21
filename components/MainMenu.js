@@ -1,23 +1,15 @@
 import * as React from 'react';
 import { Text,  View , TouchableOpacity,AsyncStorage,StatusBar} from 'react-native';
 import { Feather,Entypo,AntDesign } from '@expo/vector-icons';
-import ImagePickerExample from './ImagePickerExample';
-import {createStackNavigator, createAppContainer, NavigationEvents} from 'react-navigation'
 import { Card, ListItem, Button, Icon ,Avatar,Image } from 'react-native-elements'
 import CardMain from './CardMain';
-import {Constants} from 'expo'
+import {NavigationEvents} from 'react-navigation'
 
 
 
+export default class MainMenu extends React.Component {
 
-
-
-class MainMenu extends React.Component {
-
-    
-
-
-    constructor(props){
+  constructor(props){
         super(props);
          
         this.state = {
@@ -26,7 +18,7 @@ class MainMenu extends React.Component {
         }
       
        
-        console.log(this.state.imageURL)
+       // console.log(this.state.imageURL)
 
         
     }
@@ -41,7 +33,7 @@ class MainMenu extends React.Component {
     AsyncStorage.getItem("img").then((value) => {
         this.setState({imageURL: value});
     })
-   console.log(this.state.imageURL + 'componentWillMount')
+  // console.log(this.state.imageURL + 'componentWillMount')
   
     
 
@@ -85,7 +77,7 @@ class MainMenu extends React.Component {
                 />
 
        
-        <Card containerStyle={{shadowOffset:{width:0,height:2}, width:350, height:90,
+        <Card containerStyle={{shadowOffset:{width:0,height:2}, width:350, height:100,
         justifyContent:"center",shadowRadius:2,shadowOpacity:1, 
         elevation: 8, flex : 2
     }} >
@@ -93,7 +85,7 @@ class MainMenu extends React.Component {
             
            
             <View  style={{
-                marign:15,flexDirection:'row', justifyContent:'flex-start',alignItems:'center'}}>
+                marign:20,flexDirection:'row', justifyContent:'flex-start',alignItems:'center'}}>
             <Avatar
                       rounded
                       size="large"
@@ -127,10 +119,11 @@ class MainMenu extends React.Component {
             <View style={{flex:10, flexDirection:'row',justifyContent: 'center', alignItems:'center'
         ,  alignSelf:'center'}}>
                 <View style={{flex : 2, marginLeft:-8}}>
-                <CardMain title="Dashboard" imgsrc={dashboardimg}/>
+                <CardMain title="Dashboard" imgsrc={dashboardimg} navigation={navigation} whereTonavigate="Dashboard"/>
                 </View>
                 <View style= {{flex:2 , marginRight:16}}>
-                    <CardMain title="Alerts" imgsrc={alertimg}/>
+                    <CardMain title="Alerts" imgsrc={alertimg} navigation={navigation} whereTonavigate="Alerts"/>
+
                 </View>
             
             </View>
@@ -138,10 +131,10 @@ class MainMenu extends React.Component {
             <View style={{flex:10, flexDirection:'row',justifyContent: 'center', alignItems:'center',
         alignSelf: 'center',}}>
                 <View style={{flex : 2, marginLeft:-8}}>
-                <CardMain title="Map" imgsrc={mapimg}/>
+                <CardMain title="Map" imgsrc={mapimg} navigation={navigation} whereTonavigate="Map"/>
                 </View>
                 <View style= {{flex:2 , marginRight:16}}>
-                    <CardMain title="Chat" imgsrc={chatimg}/>
+                    <CardMain title="Chat" imgsrc={chatimg} navigation={navigation} whereTonavigate="Chat"/>
                 </View>
             
             </View>
@@ -157,50 +150,3 @@ class MainMenu extends React.Component {
 }
 
 
-const StackNavigator = createStackNavigator(
-    {
-        //ROUTESSS
-    
-        Home : {
-            screen: MainMenu,
-            navigationOptions: {
-               
-                
-            }
-           
-      
-        },
-        Settings : {
-            screen: ImagePickerExample,
-            navigationOptions: {
-                title: "Settings",
-                headerBackImage: ()=> 
-                <AntDesign name="back" size={30} color='black'/>
-                
-                ,
-            }
-        },
-        
-    
-    },
-    {
-        //STYLINGGG
-        initialRouteName : "Home",
-        
-      
-    }
-    );
-    
-    
-    const styles =  {
-        buttn : {
-           
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderRadius : 5,
-            width: 150,
-            height: 80,
-            margin : 20
-        }
-    }
-    export default StackNavigatorMain = createAppContainer(StackNavigator);

@@ -3,6 +3,11 @@ import { Text, Image, View , TouchableOpacity} from 'react-native';
 import {createStackNavigator, createAppContainer} from 'react-navigation'
 import MainMenu from './MainMenu.js'
 import ImagePickerExample from './ImagePickerExample';
+import { Feather,AntDesign } from '@expo/vector-icons';
+import Alert from './AlertClass.js';
+import Dashboard from './DashboardClass.js';
+import Map from './MapClass.js';
+import Chat from './ChatClass.js';
 
 
 
@@ -27,11 +32,27 @@ const StackNavigator = createStackNavigator(
                
             }
         },
+        Alerts : {
+            screen: Alert,
+           
+        },
+        Dashboard : {
+            screen: Dashboard,
+           
+        },
+        Map : {
+            screen: Map,
+           
+        },
+        Chat : {
+            screen: Chat,
+           
+        },
         Settings : {
             screen: ImagePickerExample,
             navigationOptions: {
                 title: "Settings",
-                headerBackImage: ()=> <Entypo name="back" size={20} color='blue'/>,
+                headerBackImage: ()=> <AntDesign name="back" size={30} color='black'/>,
             }
         },
         
@@ -57,4 +78,4 @@ const StackNavigator = createStackNavigator(
             margin : 20
         }
     }
-    export default StackNavigatorMainn = createAppContainer(StackNavigator);
+    export default StackNavigatorMain = createAppContainer(StackNavigator);

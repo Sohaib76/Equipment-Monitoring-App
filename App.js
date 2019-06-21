@@ -4,10 +4,8 @@ import * as Font from 'expo-font';
 import React, { useState } from 'react';
 import { Platform, StatusBar, StyleSheet, View ,Text} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-
 import AppNavigator from './navigation/AppNavigator';
-import ImagePickerExample from './components/ImagePickerExample';
-import StackNavigatorMain from './components/MainMenu'
+import StackNavigatorMain from './components/MainMenuStack'
 import DummyStatusBar from './components/StatusBar';
 
 export default function App(props) {
