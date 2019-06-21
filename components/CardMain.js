@@ -13,7 +13,9 @@ export default class CardMain extends React.Component {
     return (
  
                 <TouchableOpacity style={{width:200}}>
-                    <Card
+                    <Card containerStyle={{shadowOffset:{width:0,height:2}, 
+        justifyContent:"center",shadowRadius:2,shadowOpacity:1, 
+        elevation: 4}}
                         
                         title={this.props.title}
                     // featuredTitle = "CHAT"

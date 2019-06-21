@@ -1,17 +1,67 @@
 import * as React from 'react';
-import { Text, Image, View , TouchableOpacity} from 'react-native';
-import { Feather,Entypo } from '@expo/vector-icons';
+import { Text,  View , TouchableOpacity,AsyncStorage,StatusBar} from 'react-native';
+import { Feather,Entypo,AntDesign } from '@expo/vector-icons';
 import ImagePickerExample from './ImagePickerExample';
-import {createStackNavigator, createAppContainer} from 'react-navigation'
-import { Card, ListItem, Button, Icon } from 'react-native-elements'
+import {createStackNavigator, createAppContainer, NavigationEvents} from 'react-navigation'
+import { Card, ListItem, Button, Icon ,Avatar,Image } from 'react-native-elements'
 import CardMain from './CardMain';
+import {Constants} from 'expo'
+
+
+
+
 
 
 class MainMenu extends React.Component {
+
+    
+
+
+    constructor(props){
+        super(props);
+         
+        this.state = {
+            username : 'Mr.X',
+            imageURL : null
+        }
+      
+       
+        console.log(this.state.imageURL)
+
+        
+    }
+    
+   
  
   settingsPressed = () =>{
       console.log("Pressed")
   }
+
+  componentWillMount(){
+    AsyncStorage.getItem("img").then((value) => {
+        this.setState({imageURL: value});
+    })
+   console.log(this.state.imageURL + 'componentWillMount')
+  
+    
+
+}
+
+
+
+
+
+
+
+  
+
+ 
+  //{/** Header vader */}
+
+ 
+
+ 
+  static navigationOptions = { header: null }
 
   render() {
     
@@ -23,20 +73,59 @@ class MainMenu extends React.Component {
     const chatimg = require("../assets/images/chat.png")
 
     return (
+       
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          
-        <TouchableOpacity onPress={()=> navigation.navigate('Settings')}>
-            <Feather name="settings" size={32} />
-     
-        </TouchableOpacity>
+
+        <NavigationEvents
+                  onWillFocus={() => {
+                    AsyncStorage.getItem("img").then((value) => {
+                        this.setState({imageURL: value});
+                    })
+                  }}
+                />
+
+       
+        <Card containerStyle={{shadowOffset:{width:0,height:2}, width:350, height:90,
+        justifyContent:"center",shadowRadius:2,shadowOpacity:1, 
+        elevation: 8, flex : 2
+    }} >
+         
+            
+           
+            <View  style={{
+                marign:15,flexDirection:'row', justifyContent:'flex-start',alignItems:'center'}}>
+            <Avatar
+                      rounded
+                      size="large"
+                      source={{
+                          uri: this.state.imageURL
+                      }}
+                      />
+           
+           <View style={{margin:15, justifyContent:'center',alignItems:'flex-start', flexDirection:'column'}}>
+                     <Text style={{fontWeight:'bold',fontSize:20}}>Welcome Mr.X</Text>
+                     <Text>xyz@gmail.com</Text>
+                </View>
+                <TouchableOpacity style={{margin:40, justifyContent:'center',alignItems:"flex-end"}}
+                        onPress={()=> navigation.navigate('Settings')}>
+                        <Feather name="settings" size={32} />
+               </TouchableOpacity>
+        </View>
+        
+
+        
+        </Card>
+        
 
         {/* *******************Cards*********************/}
        
 
-        <View style={{flexDirection:"column",flexWrap: 'wrap', }}>
+        <View style={{flexDirection:"column", justifyContent:'center',
+            alignItems:'center', flex: 20
+    }}>
             
-            <View style={{flex:4, flexDirection:'row',justifyContent: 'space-between',
-        alignSelf: 'center',}}>
+            <View style={{flex:10, flexDirection:'row',justifyContent: 'center', alignItems:'center'
+        ,  alignSelf:'center'}}>
                 <View style={{flex : 2, marginLeft:-8}}>
                 <CardMain title="Dashboard" imgsrc={dashboardimg}/>
                 </View>
@@ -46,7 +135,7 @@ class MainMenu extends React.Component {
             
             </View>
 
-            <View style={{flex:4, flexDirection:'row',justifyContent: 'space-between',
+            <View style={{flex:10, flexDirection:'row',justifyContent: 'center', alignItems:'center',
         alignSelf: 'center',}}>
                 <View style={{flex : 2, marginLeft:-8}}>
                 <CardMain title="Map" imgsrc={mapimg}/>
@@ -74,16 +163,21 @@ const StackNavigator = createStackNavigator(
     
         Home : {
             screen: MainMenu,
-           
             navigationOptions: {
-                title: "Welcome"
+               
+                
             }
+           
+      
         },
         Settings : {
             screen: ImagePickerExample,
             navigationOptions: {
                 title: "Settings",
-                headerBackImage: ()=> <Entypo name="back" size={20} color='blue'/>,
+                headerBackImage: ()=> 
+                <AntDesign name="back" size={30} color='black'/>
+                
+                ,
             }
         },
         
