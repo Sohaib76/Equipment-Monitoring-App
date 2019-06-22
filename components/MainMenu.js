@@ -60,13 +60,18 @@ export default class MainMenu extends React.Component {
     const navigation = this.props.navigation
 
     const dashboardimg = require("../assets/images/dashboard.png")
+    const dashboardimg2 = require("../assets/images/dashboardOrange.png")
+    const alertimg2 = require("../assets/images/alertRed.png")
     const alertimg = require("../assets/images/alert.png")
     const mapimg = require("../assets/images/map.png")
+    const mapimg2 = require("../assets/images/mapGreen.png")
     const chatimg = require("../assets/images/chat.png")
+    const chatimg2 = require("../assets/images/chatBlue.png")
 
     return (
        
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'flex-start'
+       ,backgroundColor:'#d6d4c9' }}>
 
         <NavigationEvents
                   onWillFocus={() => {
@@ -77,27 +82,30 @@ export default class MainMenu extends React.Component {
                 />
 
        
-        <Card containerStyle={{shadowOffset:{width:0,height:2}, width:350, height:100,
-        justifyContent:"center",shadowRadius:2,shadowOpacity:1, 
-        elevation: 8, flex : 2
+        <Card containerStyle={{shadowOffset:{width:0,height:2}, width:360, height:100,
+        justifyContent:"space-around",shadowRadius:2,shadowOpacity:1, 
+        elevation: 8, alignItems:'center',flex:2,marginTop:-3
     }} >
          
             
            
             <View  style={{
-                marign:20,flexDirection:'row', justifyContent:'flex-start',alignItems:'center'}}>
+              
+                marign:20,flexDirection:'row', justifyContent:'center',alignItems:'center'}}>
             <Avatar
                       rounded
                       size="large"
                       source={{
                           uri: this.state.imageURL
                       }}
+                      containerStyle={{ marginLeft: 20, marginBottom:5}}
+
                       />
            
            <View style={{margin:15, justifyContent:'center',alignItems:'flex-start', flexDirection:'column'}}>
                      <Text style={{fontWeight:'bold',fontSize:20}}>Welcome Mr.X</Text>
                      <Text>xyz@gmail.com</Text>
-                </View>
+            </View>
                 <TouchableOpacity style={{margin:40, justifyContent:'center',alignItems:"flex-end"}}
                         onPress={()=> navigation.navigate('Settings')}>
                         <Feather name="settings" size={32} />
@@ -117,24 +125,32 @@ export default class MainMenu extends React.Component {
     }}>
             
             <View style={{flex:10, flexDirection:'row',justifyContent: 'center', alignItems:'center'
-        ,  alignSelf:'center'}}>
-                <View style={{flex : 2, marginLeft:-8}}>
-                <CardMain title="Dashboard" imgsrc={dashboardimg} navigation={navigation} whereTonavigate="Dashboard"/>
+        ,  alignSelf:'center',marginTop:-20}}>
+                <View style={{flex : 5, marginLeft:-8}}>
+                <CardMain title="Dashboard" imgsrc={dashboardimg2} 
+                navigation={navigation} whereTonavigate="Dashboard"
+                bgColor = "#e9a219"
+                />
+               
                 </View>
-                <View style= {{flex:2 , marginRight:16}}>
-                    <CardMain title="Alerts" imgsrc={alertimg} navigation={navigation} whereTonavigate="Alerts"/>
+                <View style= {{flex:5 , marginRight:16}}>
+                    <CardMain bgColor= "#cf1103" title="Alerts" imgsrc={alertimg2} navigation={navigation} whereTonavigate="Alerts"/>
 
                 </View>
             
             </View>
 
             <View style={{flex:10, flexDirection:'row',justifyContent: 'center', alignItems:'center',
-        alignSelf: 'center',}}>
-                <View style={{flex : 2, marginLeft:-8}}>
-                <CardMain title="Map" imgsrc={mapimg} navigation={navigation} whereTonavigate="Map"/>
+        alignSelf: 'center', marginTop:-40}}>
+                <View style={{flex : 5, marginLeft:-8, }}>
+                <CardMain title="Map" imgsrc={mapimg2} navigation={navigation}
+                 whereTonavigate="Map"
+                 bgColor = "#1b9c24"
+                 />
+                
                 </View>
-                <View style= {{flex:2 , marginRight:16}}>
-                    <CardMain title="Chat" imgsrc={chatimg} navigation={navigation} whereTonavigate="Chat"/>
+                <View style= {{flex:5 , marginRight:16}}>
+                    <CardMain bgColor="#00a7ed" title="Chat" imgsrc={chatimg2} navigation={navigation} whereTonavigate="Chat"/>
                 </View>
             
             </View>

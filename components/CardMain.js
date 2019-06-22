@@ -12,10 +12,10 @@ export default class CardMain extends React.Component {
 
     return (
  
-                <TouchableOpacity style={{width:200}} onPress={()=> navigation.navigate(this.props.whereTonavigate)}>
-                    <Card containerStyle={{shadowOffset:{width:0,height:2}, 
-        justifyContent:"center",shadowRadius:2,shadowOpacity:1, 
-        elevation: 4}}
+                <TouchableOpacity style={{width:200, }}  onPress={()=> navigation.navigate(this.props.whereTonavigate)}>
+                    <Card containerStyle={{shadowOffset:{width:0,height:2},
+        justifyContent:"center",shadowRadius:2,shadowOpacity:1,
+        elevation: 6}}
                         
                         title={this.props.title}
                     // featuredTitle = "CHAT"
@@ -31,7 +31,14 @@ export default class CardMain extends React.Component {
                             backgroundColor='#03A9F4'
                             buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
                             title='Open' /> */}
+                            
+                                <View style={{backgroundColor:this.props.bgColor,height:10,justifyContent:'center'
+                                ,alignItems:'center'
+                            }}></View>
+                           
+                        
                     </Card>
+                    
                 </TouchableOpacity>
     )
            

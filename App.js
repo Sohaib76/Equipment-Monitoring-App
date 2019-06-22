@@ -8,6 +8,7 @@ import AppNavigator from './navigation/AppNavigator';
 import StackNavigatorMain from './components/MainMenuStack'
 import DummyStatusBar from './components/StatusBar';
 
+
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
 
