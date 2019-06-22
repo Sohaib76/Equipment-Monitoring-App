@@ -12,9 +12,12 @@ export default class Dashboard extends React.Component {
 
     return (
  
-                <TouchableOpacity >
-                    <Text style={{fontSize:50}}>This is dashboard page</Text>
-                </TouchableOpacity>
+        <View style={{flex:1, flexDirection:'column',justifyContent:'space-evenly', alignItems:'center'}}>
+          <View style={{backgroundColor:'yellow'}}></View>
+          <View style={{backgroundColor:'red'}}></View>
+          <View style={{backgroundColor:'black'}}></View>
+          <Text>PP</Text>
+        </View>
     )
            
      }

@@ -8,6 +8,7 @@ import AppNavigator from './navigation/AppNavigator';
 import StackNavigatorMain from './components/MainMenuStack'
 import DummyStatusBar from './components/StatusBar';
 import ImagePickerExample from './components/ImagePickerExample';
+import Dashboard from './components/DashboardClass';
 
 
 export default function App(props) {
@@ -27,6 +28,7 @@ export default function App(props) {
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
         <DummyStatusBar backgroundColor="black" barStyle='light-content'/>
+        {/* <Dashboard/> */}
         <StackNavigatorMain/>
         {/* <MainMenu/> */}
         {/* <ImagePickerExample/> */}
