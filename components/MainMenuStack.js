@@ -8,6 +8,7 @@ import Alert from './AlertClass.js';
 import Dashboard from './DashboardClass.js';
 import Map from './MapClass.js';
 import Chat from './ChatClass.js';
+import DashboardFurtherScreens from './DashboardFurtherScreens.js';
 
 
 
@@ -39,6 +40,9 @@ const StackNavigator = createStackNavigator(
         Dashboard : {
             screen: Dashboard,
            
+        },
+        DashboardFurtherScreens:{
+            screen : DashboardFurtherScreens
         },
         Map : {
             screen: Map,
