@@ -15,7 +15,7 @@ export default class SettingTopCard extends React.Component {
             <CardImage 
               source={{uri: 'https://i.pinimg.com/originals/99/a7/5d/99a75d485745d13b7c5c6d394260ac7d.jpg'}} 
               
-              title="  Profile"
+              // title="  Profile"
               style= {{fontFamily:'sans-serif-condensed', fontWeight:'bold', fontSize:20}}
             
               

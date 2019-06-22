@@ -42,6 +42,10 @@ const StackNavigator = createStackNavigator(
         },
         Map : {
             screen: Map,
+            navigationOptions: {
+                title: "Map ",
+                
+            }
            
         },
         Chat : {
