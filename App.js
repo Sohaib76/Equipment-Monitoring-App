@@ -7,6 +7,7 @@ import { Ionicons } from '@expo/vector-icons';
 import AppNavigator from './navigation/AppNavigator';
 import StackNavigatorMain from './components/MainMenuStack'
 import DummyStatusBar from './components/StatusBar';
+import ImagePickerExample from './components/ImagePickerExample';
 
 
 export default function App(props) {
@@ -27,8 +28,8 @@ export default function App(props) {
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
         <DummyStatusBar backgroundColor="black" barStyle='light-content'/>
         <StackNavigatorMain/>
-        {/* <MainMenu/>
-        <ImagePickerExample/> */}
+        {/* <MainMenu/> */}
+        {/* <ImagePickerExample/> */}
         
 
 

@@ -13,8 +13,9 @@ export default class MainMenu extends React.Component {
         super(props);
          
         this.state = {
-            username : 'Mr.X',
-            imageURL : null
+            username : null,
+            imageURL : null,
+            email : null
         }
       
        
@@ -33,6 +34,7 @@ export default class MainMenu extends React.Component {
     AsyncStorage.getItem("img").then((value) => {
         this.setState({imageURL: value});
     })
+   
   // console.log(this.state.imageURL + 'componentWillMount')
   
     
@@ -71,13 +73,19 @@ export default class MainMenu extends React.Component {
     return (
        
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'flex-start'
-       ,backgroundColor:'#d6d4c9' }}>
-
+       ,backgroundColor:'black' }}>
+         {/* #050400 */}
         <NavigationEvents
                   onWillFocus={() => {
                     AsyncStorage.getItem("img").then((value) => {
                         this.setState({imageURL: value});
                     })
+                    AsyncStorage.getItem("uname").then((value) => {
+                      this.setState({username: value});
+                  })
+                  AsyncStorage.getItem("emal").then((value) => {
+                    this.setState({email: value});
+                })
                   }}
                 />
 
@@ -103,8 +111,8 @@ export default class MainMenu extends React.Component {
                       />
            
            <View style={{margin:15, justifyContent:'center',alignItems:'flex-start', flexDirection:'column'}}>
-                     <Text style={{fontWeight:'bold',fontSize:20}}>Welcome Mr.X</Text>
-                     <Text>xyz@gmail.com</Text>
+                     <Text style={{fontWeight:'bold',fontSize:20}}>Welcome {this.state.username}</Text>
+                     <Text>{this.state.email}</Text>
             </View>
                 <TouchableOpacity style={{margin:40, justifyContent:'center',alignItems:"flex-end"}}
                         onPress={()=> navigation.navigate('Settings')}>
