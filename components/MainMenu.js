@@ -5,6 +5,7 @@ import { Card, ListItem, Button, Icon ,Avatar,Image } from 'react-native-element
 import CardMain from './CardMain';
 import {NavigationEvents} from 'react-navigation'
 import Layout from '../constants/Layout'
+import TitleBar from './TitleBar';
 
 
 
@@ -91,7 +92,10 @@ export default class MainMenu extends React.Component {
                   }}
                 />
 
-       
+
+          <TitleBar message="Welcome" navigation={navigation} bradius={20}/>
+
+{/*        
         <Card containerStyle={{shadowOffset:{width:0,height:2}, width:360, height:100,
         justifyContent:"space-around",shadowRadius:2,shadowOpacity:1, 
         elevation: 8, alignItems:'center',flex:2,marginTop:-3, borderRadius:30
@@ -124,7 +128,7 @@ export default class MainMenu extends React.Component {
         
 
         
-        </Card>
+        </Card> */}
         
 
         {/* *******************Cards*********************/}

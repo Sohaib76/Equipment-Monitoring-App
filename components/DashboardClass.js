@@ -5,6 +5,7 @@ import { Card, ListItem, Button, Icon ,Avatar,Image } from 'react-native-element
 import CardDashboard from './CardDashboard';
 import {NavigationEvents} from 'react-navigation'
 import Layout from '../constants/Layout';
+import TitleBar from './TitleBar';
 
 
 
@@ -95,7 +96,10 @@ export default class Dashboard extends React.Component {
                 />
 
        
-        <Card containerStyle={{shadowOffset:{width:0,height:2}, width:360, height:100,
+        
+        <TitleBar message="Dashboard" navigation={navigation}/>
+        
+        {/* <Card containerStyle={{shadowOffset:{width:0,height:2}, width:360, height:100,
         justifyContent:"space-around",shadowRadius:2,shadowOpacity:1, 
         elevation: 8, alignItems:'center',flex:2,marginTop:-3
     }} >
@@ -127,7 +131,7 @@ export default class Dashboard extends React.Component {
         
 
         
-        </Card>
+        </Card> */}
         
 
         {/* *******************Cards*********************/}

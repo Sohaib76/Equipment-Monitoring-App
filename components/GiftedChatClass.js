@@ -2,6 +2,7 @@ import React from "react";
 import { GiftedChat } from "react-native-gifted-chat";
 import { ChatManager, TokenProvider } from '@pusher/chatkit-client';
 import {KeyboardAvoidingView,ScrollView} from 'react-native';
+import Layout from "../constants/Layout";
 
 
 const CHATKIT_TOKEN_PROVIDER_ENDPOINT = 'https://us1.pusherplatform.io/services/chatkit_token_provider/v1/09890ca8-edc9-4589-9e32-c0db4039f003/token';
@@ -79,7 +80,7 @@ export default class MyChat extends React.Component {
   render() {
     return (
         
-            <KeyboardAvoidingView keyboardVerticalOffset={50} style={{flex:1}} behavior="height" enabled>
+            <KeyboardAvoidingView keyboardVerticalOffset={20} style={{flex:1,padding:0}} behavior="height" enabled>
                     <GiftedChat  messages={this.state.messages}
             onSend={messages => this.onSend(messages)}
             user={{
