@@ -4,6 +4,7 @@ import { Feather,Entypo,AntDesign } from '@expo/vector-icons';
 import { Card, ListItem, Button, Icon ,Avatar,Image } from 'react-native-elements'
 import CardMain from './CardMain';
 import {NavigationEvents} from 'react-navigation'
+import Layout from '../constants/Layout'
 
 
 
@@ -129,36 +130,37 @@ export default class MainMenu extends React.Component {
         {/* *******************Cards*********************/}
        
 
-        <View style={{flexDirection:"column", justifyContent:'center',
+        <View style={{flexDirection:"column", justifyContent:'space-around',
             alignItems:'center', flex: 20
     }}>
             
             <View style={{flex:10, flexDirection:'row',justifyContent: 'center', alignItems:'center'
-        ,  alignSelf:'center',marginTop:-20}}>
-                <View style={{flex : 5, marginLeft:-8}}>
+        ,  alignSelf:'center',width:Layout.window.width}}>
+                <View style={{flex : 5}}>
                 <CardMain title="Dashboard" imgsrc={dashboardimg2} 
                 navigation={navigation} whereTonavigate="Dashboard"
                 bgColor = "#e9a219"
                 />
                
                 </View>
-                <View style= {{flex:5 , marginRight:16}}>
+                <View style= {{flex:5 }}>
                     <CardMain bgColor= "#cf1103" title="Alerts" imgsrc={alertimg2} navigation={navigation} whereTonavigate="Alerts"/>
 
                 </View>
             
             </View>
 
-            <View style={{flex:10, flexDirection:'row',justifyContent: 'center', alignItems:'center',
-        alignSelf: 'center', marginTop:-40}}>
-                <View style={{flex : 5, marginLeft:-8, }}>
-                <CardMain title="Map" imgsrc={mapimg2} navigation={navigation}
-                 whereTonavigate="Map"
-                 bgColor = "#1b9c24"
-                 />
+            <View style={{flex:11, flexDirection:'row',justifyContent: 'center', alignItems:'stretch',
+                   width:Layout.window.width}}>
+                <View style={{flex : 5 ,  flexDirection:'column',
+                      alignItems:'center',justifyContent:'center'}}>
+                    <CardMain title="Map" imgsrc={mapimg2} navigation={navigation}
+                    whereTonavigate="Map"
+                    bgColor = "#1b9c24"
+                    />
                 
                 </View>
-                <View style= {{flex:5 , marginRight:16}}>
+                <View style= {{flex:5,  alignItems:'center',justifyContent:'center' }}>
                     <CardMain bgColor="#00a7ed" title="Chat" imgsrc={chatimg2} navigation={navigation} whereTonavigate="Chat"/>
                 </View>
             
