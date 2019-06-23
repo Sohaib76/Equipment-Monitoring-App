@@ -4,6 +4,7 @@ import TitleBar from './TitleBar';
 import { Feather,MaterialIcons,FontAwesome} from '@expo/vector-icons';
 import { Card, ListItem, Button, Icon ,Avatar,Image ,Input,Overlay} from 'react-native-elements'
 import Layout from '../constants/Layout'
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default class Alert extends Component
 {
@@ -111,7 +112,7 @@ export default class Alert extends Component
 
       const navigation = this.props.navigation
         return(
-            <View style = { styles.MainContainer }>
+            <ScrollView style = { styles.MainContainer }>
               <TitleBar message="Alerts" navigation={navigation}/>
  
                 <View style = { styles.ChildView }>
@@ -485,7 +486,7 @@ export default class Alert extends Component
                 
                 </View>
             
-            </View>
+            </ScrollView>
         );
     }
 }

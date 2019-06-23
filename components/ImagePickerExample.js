@@ -212,7 +212,7 @@ export default class ImagePickerExample extends React.Component {
                   shake={true}
                   onChangeText = {(e) => this.usernameStateEdit(e)}
                   value = {this.state.usernameTemp}
-                  maxLength = {10}
+                  maxLength = {6}
 
                 />
                 <View style={{flexDirection:'row', justifyContent:'space-between',margin:10}}>

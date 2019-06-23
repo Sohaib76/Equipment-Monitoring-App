@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text,  View , TouchableOpacity,AsyncStorage,StatusBar} from 'react-native';
+import { Text,  View , TouchableOpacity,AsyncStorage,StatusBar,ImageBackground} from 'react-native';
 import { Feather,Entypo,AntDesign } from '@expo/vector-icons';
 import { Card, ListItem, Button, Icon ,Avatar,Image } from 'react-native-elements'
 import CardMain from './CardMain';
@@ -69,11 +69,12 @@ export default class MainMenu extends React.Component {
     const mapimg2 = require("../assets/images/mapGreen.png")
     const chatimg = require("../assets/images/chat.png")
     const chatimg2 = require("../assets/images/chatBlue.png")
+    const wall1 = require("../assets/images/wallpaper2.jpg")
 
     return (
        
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'flex-start'
-       ,backgroundColor:'black' }}>
+      <ImageBackground style={{ flex: 1, alignItems: 'center', justifyContent: 'flex-start'
+       ,backgroundColor:'black' ,resizeMode:'contain'}} source={wall1} >
          {/* #050400 */}
         <NavigationEvents
                   onWillFocus={() => {
@@ -92,7 +93,7 @@ export default class MainMenu extends React.Component {
        
         <Card containerStyle={{shadowOffset:{width:0,height:2}, width:360, height:100,
         justifyContent:"space-around",shadowRadius:2,shadowOpacity:1, 
-        elevation: 8, alignItems:'center',flex:2,marginTop:-3
+        elevation: 8, alignItems:'center',flex:2,marginTop:-3, borderRadius:30
     }} >
          
             
@@ -167,7 +168,7 @@ export default class MainMenu extends React.Component {
         </View>
 
 
-      </View>
+      </ImageBackground>
     );
 
     }
