@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { Text,  View , TouchableOpacity,AsyncStorage,StatusBar} from 'react-native';
+import { Text,  View , TouchableOpacity,AsyncStorage,StatusBar,ImageBackground} from 'react-native';
 import { Feather,Entypo,AntDesign } from '@expo/vector-icons';
 import { Card, ListItem, Button, Icon ,Avatar,Image } from 'react-native-elements'
 import CardDashboard from './CardDashboard';
 import {NavigationEvents} from 'react-navigation'
+import Layout from '../constants/Layout';
 
 
 
@@ -29,6 +30,7 @@ export default class Dashboard extends React.Component {
     const accountReceivable = require("../assets/images/accountReceivable.png")
     const accountPayable = require("../assets/images/accountPayable.png")
     const salesByProduct = require("../assets/images/salesByProduct.png")
+    const wall1 = require("../assets/images/wallpaper3.jpg")
 
     return (
       // <View style={{alignItems:"center"}}>
@@ -75,8 +77,8 @@ export default class Dashboard extends React.Component {
 
    
        
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'flex-start'
-       ,backgroundColor:'black' }}>
+      <ImageBackground style={{ flex: 1, alignItems: 'center', justifyContent: 'flex-start'
+       ,backgroundColor:'black' }} source={wall1}>
          {/* #050400 */}
         <NavigationEvents
                   onWillFocus={() => {
@@ -131,36 +133,39 @@ export default class Dashboard extends React.Component {
         {/* *******************Cards*********************/}
        
 
-        <View style={{flexDirection:"column", justifyContent:'flex-start',
-            alignItems:'space-around', flex: 20 , backgroundColor:'red'
+        <View style={{flexDirection:"column", justifyContent:'space-around',width:Layout.window.width,
+            alignItems:'center', flex: 18 
     }}>
             
-            <View style={{flex:4, flexDirection:'row',justifyContent: 'center', alignItems:'flex-start'
-        ,  alignSelf:'center' , backgroundColor:'yellow', marginTop:-20}}>
-                <View style={{flex : 2, marginLeft:-8, justifyContent:'flex-start'}}>
+            <View style={{flex:5, flexDirection:'row',justifyContent: 'center', alignItems:'center'
+        ,  alignSelf:'center' , width:Layout.window.width}}>
+                <View style={{flex : 2.5, justifyContent:'space-around',alignItems:'center'}}>
                 <CardDashboard title="Income vs Target" imgsrc={m} 
                 navigation={navigation} whereTonavigate="DashboardFurtherScreens"
                
                 />
                
                 </View>
-                <View style= {{flex:2 , marginRight:16}}>
+                <View style= {{flex:2.5 ,justifyContent:'center', alignItems:'center'}}>
                     <CardDashboard  title="Sales By Product" imgsrc={salesByProduct} navigation={navigation} whereTonavigate="DashboardFurtherScreens"/>
 
                 </View>
             
             </View>
 
-            <View style={{flex:4, flexDirection:'row',justifyContent: 'center', alignItems:'center',
-        alignSelf: 'center',  backgroundColor:'green'}}>
-                <View style={{flex : 2, marginLeft:-8,marginTop:-110 }}>
+            {/* <View style={{ flex: 5, backgroundColor: 'green' ,width:Layout.window.width}} ><Text>A</Text></View> */}
+            {/* <View style={{ flex: 5, backgroundColor: 'blue' }} ><Text>B</Text></View> */}
+ 
+            <View style={{flex:5, flexDirection:'row',justifyContent: 'center', alignItems:'center',
+        alignSelf: 'center', width:Layout.window.width}}>
+                <View style={{flex : 2.5 }}>
                 <CardDashboard title="Cash At The Beginning.." imgsrc={cashAtBegining} navigation={navigation}
                  whereTonavigate="DashboardFurtherScreens"
                 
                  />
                 
                 </View>
-                <View style= {{flex:2 , marginRight:16, marginTop:-110}}>
+                <View style= {{flex:2.5 }}>
                     <CardDashboard title="Sales By Service" imgsrc={salesByService} navigation={navigation} whereTonavigate="DashboardFurtherScreens"/>
                 </View>
             
@@ -168,29 +173,28 @@ export default class Dashboard extends React.Component {
 
 
 
-
             
 
-            <View style={{flex:4, flexDirection:'row',justifyContent: 'center', alignItems:'center',
-        alignSelf: 'center',marginTop:-20}}>
-                <View style={{flex : 2, marginLeft:-8, marginTop:-80 }}>
+            <View style={{flex:5, flexDirection:'row',justifyContent: 'space-around', alignItems:'center',
+        alignSelf: 'center', width:Layout.window.width}}>
+                <View style={{flex : 2.5 }}>
                 <CardDashboard title="Account Receivable" imgsrc={accountReceivable} navigation={navigation}
                  whereTonavigate="DashboardFurtherScreens"
                 
                  />
                 
                 </View>
-                <View style= {{flex:2 , marginRight:16 , marginTop:-80}}>
+                <View style= {{flex:2.5 }}>
                     <CardDashboard  title="Account Payable" imgsrc={accountPayable} navigation={navigation} whereTonavigate="DashboardFurtherScreens"/>
                 </View>
             
-            </View>
+            </View> 
            
         
         </View>
 
 
-      </View>
+      </ImageBackground>
     
 
   

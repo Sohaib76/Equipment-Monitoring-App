@@ -13,18 +13,20 @@ export default class CardDashboard extends React.Component {
 
     return (
  
-                <TouchableOpacity activeOpacity={0.9}
-                style={{width:200, height:Layout.window.height/6 }}  onPress={()=> navigation.navigate(this.props.whereTonavigate)}>
-                    <Card containerStyle={{shadowOffset:{width:0,height:2},
-        justifyContent:"center",shadowRadius:2,shadowOpacity:1,
-        elevation: 6}}
+                <TouchableOpacity activeOpacity={0.6}
+                style={{width:200,  height:Layout.window.height/4,justifyContent:'space-around',alignSelf:'center',alignItems:'stretch'}}  onPress={()=> navigation.navigate(this.props.whereTonavigate)}>
+                    <Card containerStyle={{shadowOffset:{width:0,height:5},
+        justifyContent:"space-between",alignItems:'center',shadowRadius:5,shadowOpacity:1,height:Layout.window.height/4,
+        elevation: 8,borderRadius:10}}
+
                         
                         title={this.props.title}
-                        titleStyle={{marginTop:50}}
+                        // titleStyle={{marginTop:60}}
                     // featuredTitle = "CHAT"
                         
                         image={this.props.imgsrc}
-                        imageStyle = {{ marginTop:0,marginLeft:30 ,alignContent:'center',maxWidth:80,maxHeight:80,justifyContent:'center'}}
+                        //marginTop:0,marginLeft:30 ,
+                        imageStyle = {{ alignContent:'center',maxWidth:80,maxHeight:80,justifyContent:'center'}}
                         >
                         {/* <Text style={{marginBottom: 10,}}>
                             You can chat instantly with your customer easy and fast.
@@ -36,7 +38,7 @@ export default class CardDashboard extends React.Component {
                             title='Open' /> */}
                             
                                 <View style={{height:5,justifyContent:'flex-start'
-                                ,alignItems:'flex-start',marginTop:20
+                                ,alignItems:'flex-start'
                                 
                             }}><Text style={{color:'grey'}}>Just Now</Text></View>
                            
