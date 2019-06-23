@@ -362,12 +362,12 @@ export default class ImagePickerExample extends React.Component {
      
     
 
-        {image &&
+        
           <Image source={{ uri: image }} style={{ width: 100, height: 100 ,borderRadius:50
           }} />
-
-   }
-       
+          
+          
+  
         </TouchableOpacity> 
         <View style={{position:'absolute', top:0, left:0 , bottom:0, margin:80,
          marginTop:85}}>
@@ -382,8 +382,8 @@ export default class ImagePickerExample extends React.Component {
     );
   }
 
+
  
-  
 
   componentDidMount() {
     this.getPermissionAsync();
