@@ -14,8 +14,9 @@ export default class CardMain extends React.Component {
  
                 <TouchableOpacity activeOpacity={0.5}
                 style={{width:200, alignSelf:'center',justifyContent:'center'}}  onPress={()=> navigation.navigate(this.props.whereTonavigate)}>
-                    <Card containerStyle={{shadowOffset:{width:0,height:6},
-        justifyContent:"center",shadowRadius:10,shadowOpacity:1,
+                    <Card containerStyle={{shadowOffset:{width:0,height:3},
+        justifyContent:"center",shadowRadius:5,shadowOpacity:1,borderWidth:1,borderColor:'#adadad',
+        shadowColor:'#000000', shadowOpacity:1, backgroundColor:'white',
         elevation: 6, borderRadius:20}}
                         
                         title={this.props.title}

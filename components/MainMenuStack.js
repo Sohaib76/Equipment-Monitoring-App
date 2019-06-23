@@ -9,6 +9,7 @@ import Dashboard from './DashboardClass.js';
 import Map from './MapClass.js';
 import Chat from './ChatClass.js';
 import DashboardFurtherScreens from './DashboardFurtherScreens.js';
+import Settings from './SettingsClass.js';
 
 
 
@@ -57,7 +58,7 @@ const StackNavigator = createStackNavigator(
            
         },
         Settings : {
-            screen: ImagePickerExample,
+            screen: Settings,
             navigationOptions: {
                 title: "Settings",
                 headerBackImage: ()=> <AntDesign name="back" size={30} color='black'/>,
