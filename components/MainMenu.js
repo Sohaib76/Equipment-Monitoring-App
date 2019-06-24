@@ -71,7 +71,7 @@ export default class MainMenu extends React.Component {
     const mapimg2 = require("../assets/images/mapGreen.png")
     const chatimg = require("../assets/images/chat.png")
     const chatimg2 = require("../assets/images/chatBlue.png")
-    const wall1 = require("../assets/images/wallpaper2.jpg")
+    const wall1 = require("../assets/images/wallpaper4.jpg")
 
     return (
        

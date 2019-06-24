@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { StyleSheet, View, Text, TouchableOpacity, LayoutAnimation, UIManager, Platform } from 'react-native';
+import { StyleSheet, View, AsyncStorage,Text, TouchableOpacity, LayoutAnimation, UIManager, Platform } from 'react-native';
 
 import TitleBar from './TitleBar';
 
@@ -57,12 +57,20 @@ export default class Alert extends Component
            isVisible1 : false,
 
            isVisible2 : false,
+           isVisible3 : false,
+           isVisible4 : false,
 
            reportTemp : '',
 
-           myReport: ''
+           myReport: '',
 
-          
+          card : true,
+
+          card2: true,
+
+          id_1 : 'ID5342',
+
+          id_2 : 'ID6124'
 
           }
 
@@ -88,16 +96,50 @@ export default class Alert extends Component
 
     }
 
+    acceptedRequest2 = ()=>{
 
+      this.setState({isVisible3: true})
+
+    }
+
+    componentDidMount() {
+
+      
+ 
+    
+
+ 
+    
+     
+    }
 
     _editReport = () =>{
 
       this.setState({myReport:this.state.reportTemp, reportTemp:''})
 
-      this.setState({isVisible1: false})
+      this.setState({isVisible1: false, isVisible2:false,card: false})
+      alert("Your Report " + this.state.id_1 + " has been successfully submitted to our servers")
+      AsyncStorage.setItem("card", this.state.card);
+      AsyncStorage.getItem("card").then((value) => {
+        this.setState({"card": value});
+    }).done();
 
     }
 
+    _editReport2 = () =>{
+
+      this.setState({myReport:this.state.reportTemp, reportTemp:''})
+
+      this.setState({isVisible3: false,card2: false})
+      alert("Your Report " + this.state.id_2 + " has been successfully submitted to our servers")
+      AsyncStorage.setItem("card", this.state.card2);
+
+      AsyncStorage.getItem("card2").then((value) => {
+        this.setState({"card2": value});
+    }).done();
+    
+
+    }
     
 
 
@@ -105,6 +147,12 @@ export default class Alert extends Component
     rejectedRequest = ()=>{
 
       this.setState({isVisible2: true})
+
+    }
+
+    rejectedRequest2 = ()=>{
+
+      this.setState({isVisible4: true})
 
     }
 
@@ -218,9 +266,11 @@ export default class Alert extends Component
 
     {
 
-
+      //var img = this.state.showImage ? <MyImage /> :''
 
       const navigation = this.props.navigation
+      let {card} = this.state
+      let {card2} = this.state
 
         return(
 
@@ -259,8 +309,9 @@ export default class Alert extends Component
 
 
 
+                 
 
- 
+                {card === true  && 
 
                     <TouchableOpacity activeOpacity = { 0.7 } 
 
@@ -355,9 +406,8 @@ export default class Alert extends Component
 
                     </TouchableOpacity>
 
-
-
-
+                      }
+{card ===true  && 
 
                     <View style = {{ height: this.state.updatedHeight1, overflow: 'hidden' ,flexDirection:'row',justifyContent:'space-around'}}>
 
@@ -399,6 +449,7 @@ export default class Alert extends Component
 
                     </View>
 
+         }
 
 
 
@@ -430,12 +481,11 @@ export default class Alert extends Component
 
 
 
+          {/************************Warning Card***************** */}
 
+{card2 ===true &&
 
-
-
-
-                    {/************************Warning Card***************** */}
+                    
 
                     <TouchableOpacity activeOpacity = { 0.7 } 
 
@@ -532,7 +582,7 @@ export default class Alert extends Component
 
 
 
-
+               } 
 
 
 
@@ -585,13 +635,13 @@ export default class Alert extends Component
 
                       width= {Layout.window.width - 10}
 
-                      height={350}
+                      height={400}
 
 
 
                       isVisible={this.state.isVisible1}
 
-                      onBackdropPress={() => this.setState({ isVisible1: false })}
+                      // onBackdropPress={() => this.setState({ isVisible1: false })}
 
                     >
 
@@ -649,9 +699,9 @@ export default class Alert extends Component
 
                         </View>
 
-                        <View style={{flexDirection:'row', justifyContent:'space-between',margin:10}}>
+                        <View style={{flexDirection:'row', justifyContent:'space-between'}}>
 
-                          <TouchableOpacity onPress={this._editReport}>
+                          <TouchableOpacity style={{ width:100,height:40}} onPress={this._editReport}>
 
                             <Text>Done</Text>
 
@@ -676,6 +726,183 @@ export default class Alert extends Component
 
 
                     </Overlay>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                      
+
+                                    {/**************oVERLAY Warning Accepted*************/}
+
+
+
+                                    <Overlay 
+
+                  windowBackgroundColor="rgba(255, 255, 255, .5)"
+
+
+
+                  width= {Layout.window.width - 10}
+
+                  height={400}
+
+
+
+                  isVisible={this.state.isVisible3}
+
+                  // onBackdropPress={() => this.setState({ isVisible1: false })}
+
+                  >
+
+                  <View style={{justifyContent:'center'}}>
+
+                    <View style={{alignItems:'center'}}>
+
+                      <Text style={{marginTop:20, fontSize:20,fontWeight:'bold'}}>You Have Accepted!</Text>
+
+                      <Text style={{margin:10 , fontSize:18}}>Report The Intervention</Text>
+
+                    </View>
+
+
+
+                  <View >
+
+                    <Input
+
+                        placeholder='Enter Your Report'
+
+                        shake={true}
+
+                        onChangeText = {(e) => this.reportStateEdit(e)}
+
+                        value = {this.state.reportTemp}
+
+                        maxLength = {100}
+
+                        multiline={true}
+
+
+
+                        
+
+                        inputContainerStyle = {{height:200}}
+
+
+
+                      />
+
+                          </View>
+
+
+
+                  <View style={{flexDirection:'row', justifyContent:'flex-end',margin:20}}>
+
+                      <TouchableOpacity><MaterialIcons name="attach-file" size={30} color="black"/></TouchableOpacity>
+
+                      
+
+                      <TouchableOpacity><MaterialIcons name="photo-camera" size={30} color="black"/></TouchableOpacity>
+
+                      
+
+                    </View>
+
+                    <View style={{flexDirection:'row', justifyContent:'space-between'}}>
+
+                      <TouchableOpacity style={{width:100,height:40}} onPress={this._editReport2}>
+
+                        <Text>Done</Text>
+
+                      </TouchableOpacity>
+
+                      <TouchableOpacity onPress={() => this.setState({ isVisible3: false })}>
+
+                        <Text>Cancel</Text>
+
+                      </TouchableOpacity>
+
+                    </View>
+
+                  </View>
+
+
+
+
+
+
+
+
+
+                  </Overlay>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -727,7 +954,7 @@ export default class Alert extends Component
 
                       width= {Layout.window.width - 10}
 
-                      height={350}
+                      height={400}
 
 
 
@@ -795,7 +1022,7 @@ export default class Alert extends Component
 
                         </View>
 
-                        <View style={{flexDirection:'row', justifyContent:'space-between',margin:10}}>
+                        <View style={{flexDirection:'row', justifyContent:'space-between'}}>
 
                           <TouchableOpacity onPress={this._editReport}>
 
@@ -828,6 +1055,122 @@ export default class Alert extends Component
 
 
 
+                                {/**************oVERLAY Warning Rejected*************/}
+
+
+
+                                <Overlay 
+
+                                windowBackgroundColor="rgba(255, 255, 255, .5)"
+
+
+
+                                width= {Layout.window.width - 10}
+
+                                height={400}
+
+
+
+                                isVisible={this.state.isVisible4}
+
+                                onBackdropPress={() => this.setState({ isVisible4: false })}
+
+                                >
+
+                                <View style={{justifyContent:'center'}}>
+
+                                  <View style={{alignItems:'center'}}>
+
+                                    <Text style={{marginTop:20, fontSize:15,fontWeight:'bold'}}>You Have Rejected The Intervention!</Text>
+
+                                    <Text style={{margin:10 , fontSize:18}}>Cause of Rejection?</Text>
+
+                                  </View>
+
+
+
+                                <View >
+
+                                  <Input
+
+                                      placeholder='Enter Your Report'
+
+                                      shake={true}
+
+                                      onChangeText = {(e) => this.reportStateEdit(e)}
+
+                                      value = {this.state.reportTemp}
+
+                                      maxLength = {100}
+
+                                      multiline={true}
+
+
+
+                                      
+
+                                      inputContainerStyle = {{height:200}}
+
+
+
+                                    />
+
+
+
+                                    
+
+                                </View>
+
+
+
+                                <View style={{flexDirection:'row', justifyContent:'flex-end',margin:20}}>
+
+                                    <TouchableOpacity><MaterialIcons name="attach-file" size={30} color="black"/></TouchableOpacity>
+
+                                    
+
+                                    <TouchableOpacity><MaterialIcons name="photo-camera" size={30} color="black"/></TouchableOpacity>
+
+                                    
+
+                                  </View>
+
+                                  <View style={{flexDirection:'row', justifyContent:'space-between'}}>
+
+                                    <TouchableOpacity onPress={this._editReport2}>
+
+                                      <Text>Done</Text>
+
+                                    </TouchableOpacity>
+
+                                    <TouchableOpacity onPress={() => this.setState({ isVisible4: false })}>
+
+                                      <Text>Cancel</Text>
+
+                                    </TouchableOpacity>
+
+                                  </View>
+
+                                </View>
+
+
+
+
+
+
+
+
+
+                                </Overlay>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -925,7 +1268,7 @@ export default class Alert extends Component
 
  
 
-                    
+                    {card2 === true &&       
 
                     <View style = {{ height: this.state.updatedHeight2, overflow: 'hidden' ,flexDirection:'row',justifyContent:'space-around'}}>
 
@@ -935,7 +1278,7 @@ export default class Alert extends Component
 
                         <TouchableOpacity style = { styles.ExpandViewInsideText } 
 
-                              onPress={this.acceptedRequest}
+                              onPress={this.acceptedRequest2}
 
                               onLayout = {( value ) => this.getHeight( value.nativeEvent.layout.height + 50 )}>
 
@@ -949,7 +1292,7 @@ export default class Alert extends Component
 
                         <TouchableOpacity style = { styles.ExpandViewInsideText } 
 
-                              onPress={this.rejectedRequest}
+                              onPress={this.rejectedRequest2}
 
                               onLayout = {( value ) => this.getHeight( value.nativeEvent.layout.height + 50 )}>
 
@@ -966,12 +1309,13 @@ export default class Alert extends Component
                     
 
                     </View>
+                    }
 
                 
 
                 </View>
-
-            
+             
+                    <TouchableOpacity oPress={this.reset} style={{justifyContent:'flex-start',alignItems:'flex-end'}}><Text>.</Text></TouchableOpacity>
 
             </View>
 
@@ -979,6 +1323,11 @@ export default class Alert extends Component
 
     }
 
+}
+reset = () =>{
+  AsyncStorage.removeItem("card");
+  AsyncStorage.removeItem("card2");
+  this.setState({card:true,card2:true})
 }
 
  

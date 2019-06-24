@@ -68,7 +68,7 @@ export default class ImagePickerExample extends React.Component {
 
 
 
-        <View style={{flexDirection:"column", justifyContent:'space-evenly'}}>
+        <View style={{flexDirection:"column", justifyContent:'space-around'}}>
 
         {/** Main */}
        
@@ -92,7 +92,7 @@ export default class ImagePickerExample extends React.Component {
           shadowOffset:{width:0,height:2}, shadowRadius:5}}>
         <View  style={{width:Layout.window.width-5 , flexDirection:"column"}}>
           <Tooltip popover={<Text>Change Username</Text>}>
-            <Text style={{fontWeight:'bold',fontSize:20, margin:10}}>UserName</Text>
+            <Text style={{fontWeight:'bold',fontSize:20}}>UserName</Text>
           </Tooltip>
           </View>
           <View style={{
@@ -123,7 +123,7 @@ export default class ImagePickerExample extends React.Component {
                     shadowOffset:{width:0,height:2}, shadowRadius:5}}>
                   <View  style={{width:Layout.window.width-5 , flexDirection:"column"}}>
                     <Tooltip popover={<Text>Change Email</Text>}>
-                      <Text style={{fontWeight:'bold',fontSize:20, margin:10}}>Email</Text>
+                      <Text style={{fontWeight:'bold',fontSize:20}}>Email</Text>
                     </Tooltip>
                     </View>
                     <View style={{
@@ -158,7 +158,7 @@ export default class ImagePickerExample extends React.Component {
                     shadowOffset:{width:0,height:2}, shadowRadius:5}}>
                   <View  style={{width:Layout.window.width-5 , flexDirection:"column"}}>
                     <Tooltip popover={<Text>Change Password</Text>}>
-                      <Text style={{fontWeight:'bold',fontSize:20, margin:10}}>Password</Text>
+                      <Text style={{fontWeight:'bold',fontSize:20}}>Password</Text>
                     </Tooltip>
                     </View>
                     <View style={{
@@ -366,17 +366,17 @@ export default class ImagePickerExample extends React.Component {
           <Image source={{ uri: image }} style={{ width: 100, height: 100 ,borderRadius:50
           }} />
           
-          
+         
   
         </TouchableOpacity> 
-        <View style={{position:'absolute', top:0, left:0 , bottom:0, margin:80,
-         marginTop:85}}>
-        <MaterialCommunityIcons name="account-edit" size={40} color={'white'}
-           
-         /> 
-        </View>
+        
 
-         
+        <TouchableOpacity  onPress={this._pickImage} style={{position:'absolute', top:0, left:0 , bottom:0, margin:80,
+            marginTop:85}}>
+            <MaterialCommunityIcons name="account-edit" size={40} color={'white'}
+              
+            /> 
+          </TouchableOpacity>
           
       </View>
     );

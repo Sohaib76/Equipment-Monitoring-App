@@ -58,7 +58,7 @@ const StackNavigator = createStackNavigator(
            
         },
         Settings : {
-            screen: Settings,
+            screen: ImagePickerExample,
             navigationOptions: {
                 title: "Settings",
                 headerBackImage: ()=> <AntDesign name="back" size={30} color='black'/>,

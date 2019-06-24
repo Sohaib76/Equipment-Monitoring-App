@@ -10,10 +10,13 @@ export default class SettingTopCard extends React.Component {
 
     // https://www.whatswithtech.com/wp-content/uploads/2015/09/black-and-white-material-design-wallpaper-1.png
     render(){
+
+    
+        const settingsCard = require("../assets/images/Settings_card.jpg")
         return(
             <Card style={{margin:0,  borderRadius: 40}} >
             <CardImage 
-              source={{uri: 'https://i.pinimg.com/originals/99/a7/5d/99a75d485745d13b7c5c6d394260ac7d.jpg'}} 
+              source={settingsCard} 
               
               // title="  Profile"
               style= {{fontFamily:'sans-serif-condensed', fontWeight:'bold', fontSize:20}}
