@@ -3,13 +3,14 @@ import { Text, Image, View , TouchableOpacity} from 'react-native';
 import {createStackNavigator, createAppContainer} from 'react-navigation'
 import MainMenu from './MainMenu.js'
 import ImagePickerExample from './ImagePickerExample';
-import { Feather,AntDesign } from '@expo/vector-icons';
+import { Feather,AntDesign ,MaterialIcons, Entypo} from '@expo/vector-icons';
 import Alert from './AlertClass.js';
 import Dashboard from './DashboardClass.js';
 import Map from './MapClass.js';
 import Chat from './ChatClass.js';
 import DashboardFurtherScreens from './DashboardFurtherScreens.js';
 import Settings from './SettingsClass.js';
+import AlertHistory from './AlertHistory.js';
 
 
 
@@ -44,6 +45,22 @@ const StackNavigator = createStackNavigator(
         },
         DashboardFurtherScreens:{
             screen : DashboardFurtherScreens
+        },
+        AlertHistory:{
+            screen: AlertHistory,
+          
+            
+            navigationOptions: {
+                
+                title: "Interventions ",
+                headerRight: (
+                    <TouchableOpacity  style={{flexDirection:'row',margin:10}} onPress={() => alert('Right Menu Clicked')}>
+                        
+                        <MaterialIcons name="search" color="black"  size={25}/>
+                        <Entypo name="message" color="black" size={25}/>
+                    </TouchableOpacity>
+                  ),
+            }
         },
         Map : {
             screen: Map,
