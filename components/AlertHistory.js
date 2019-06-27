@@ -494,7 +494,7 @@ componentDidMount(){
 
 
 
-                                       <View>
+                                       <View style={{width:Layout.window.width - 20}}> 
 
                                         <Input
 
@@ -739,7 +739,7 @@ componentDidMount(){
 
 
 
-                                
+                                <View style={{width:Layout.window.width - 20}}>
 
                                 <Input
 
@@ -765,7 +765,7 @@ componentDidMount(){
 
                                 />
 
-                                    
+                            </View>
 
 
 
@@ -949,7 +949,7 @@ componentDidMount(){
 
 
 
-                                                                
+                                                                 <View style={{width:Layout.window.width - 20}}>
 
                                                                     <Input
 
@@ -976,7 +976,7 @@ componentDidMount(){
                                                                     />
 
                                                                     
-
+                                                                </View> 
 
 
                                                         <View style={{flexDirection:'row', justifyContent:'flex-end',margin:20}}>
@@ -1171,7 +1171,7 @@ componentDidMount(){
 
 
 
-                                                                
+                                                                <View style={{width:Layout.window.width - 20}}>
 
                                                                     <Input
 
@@ -1197,7 +1197,7 @@ componentDidMount(){
 
                                                                     />
 
-                                                                    
+                                                                </View>      
 
 
 

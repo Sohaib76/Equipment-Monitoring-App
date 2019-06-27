@@ -100,6 +100,16 @@ export default class Alert extends Component
 
     }
 
+    intervention = ()=>{
+
+      this.props.navigation.navigate("AlertHistory" ,  {cardYAccept:"card"})
+      
+    
+    }
+
+
+
+
 
     _removeItemValue = async() => {
       alert("this.state.card2")
@@ -126,6 +136,9 @@ export default class Alert extends Component
       //     this.setState({card: true})
       // }
       // alert(this.state.card)
+      //  AsyncStorage.removeItem("card")
+      // AsyncStorage.removeItem("card2")
+      // alert(AsyncStorage.getItem('card'))
 
       // AsyncStorage.setItem("card", 'true')
       // AsyncStorage.setItem("card2", 'true')
@@ -136,13 +149,43 @@ export default class Alert extends Component
      }
 
     componentDidMount() {
-      AsyncStorage.getItem("card").then((value) => {
-        this.setState({card: value});
-    }).done()
+
+      AsyncStorage.getItem('card', (err, result) => {
+        if (!err && result != null){
+            // do something 
+            this.setState({card: result});
+        }
+        else {
+            // do something else
+        }
+       
+      });
+
+
+      AsyncStorage.getItem('card2', (err, result) => {
+        if (!err && result != null){
+            // do something 
+            this.setState({card2: result});
+        }
+        else {
+            // do something else
+        }
+       
+      });
+      // if( AsyncStorage.getItem("card") === "jhhh" ||  AsyncStorage.getItem("card") === "truasfsae"){
+      //   AsyncStorage.getItem("card").then((value) => {
+      //     this.setState({card: value});
+      // }).done()
+      // }
   
-    AsyncStorage.getItem("card2").then((value) => {
-      this.setState({card2: value});
-  }).done()
+      // if(AsyncStorage.getItem("card2") !== undefined || AsyncStorage.getItem("card2") !== null){
+      //   AsyncStorage.getItem("card2").then((value) => {
+      //     this.setState({card2: value});
+      // }).done()
+    
+      // }
+  
+
    
 
      
@@ -273,9 +316,11 @@ export default class Alert extends Component
  
 
     static navigationOptions = { header: null }
-
+    
+    
+  
     render()
-
+      
     {
 
       //var img = this.state.showImage ? <MyImage /> :''
@@ -290,13 +335,12 @@ export default class Alert extends Component
 
               <TitleBar message="Alerts" navigation={navigation}/>
 
- 
+                  
+           
+
+            
 
                 <View style = { styles.ChildView }>
-
-
-
-
 
 
 
@@ -713,6 +757,24 @@ export default class Alert extends Component
 
                     </View>
                     }
+
+
+
+
+                    
+                {/* <TouchableOpacity onPress={this.intervention}
+              style={{borderRadius:10,margin:20 ,justifyContent:'center',alignItems:'center',width:Layout.window.width-2,backgroundColor:"#11b7d1",height:Layout.window.height/6.5}}>
+                <Text style={{fontSize:15, color:'white'}}>My Interventions</Text></TouchableOpacity> */}
+
+
+
+
+
+
+
+
+
+
 
                 {/* <TouchableOpacity oPress={this._removeItemValue} style={{justifyContent:'flex-start',alignItems:'flex-end'}}><Text>Reset</Text></TouchableOpacity> */}
 
