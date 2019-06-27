@@ -13,7 +13,7 @@ export default class CardMain extends React.Component {
     return (
  
                 <TouchableOpacity activeOpacity={0.5}
-                style={{width:200, alignSelf:'center',justifyContent:'center'}}  onPress={()=> navigation.navigate(this.props.whereTonavigate)}>
+                style={{width:200, alignSelf:'center',justifyContent:'center'}}  onPress={()=> navigation.navigate(this.props.whereTonavigate, {cardYAccept:"firstCard"})}>
                     <Card containerStyle={{shadowOffset:{width:0,height:3},
         justifyContent:"center",shadowRadius:5,shadowOpacity:1,borderWidth:1,borderColor:'#adadad',
         shadowColor:'#000000', shadowOpacity:1, backgroundColor:'white',

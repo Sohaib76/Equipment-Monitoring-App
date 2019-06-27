@@ -86,10 +86,17 @@ export default class TitleBar extends React.Component {
 
 
                         </View>
-                                <TouchableOpacity style={{ justifyContent:'center',alignItems:"flex-end"}}
-                                        onPress={()=> navigation.navigate('Settings')}>
-                                        <Feather name="settings" size={32} />
-                            </TouchableOpacity>
+                        <View style={{flexDirection:'row-reverse', alignItems:'flex-end'}}>
+                                <TouchableOpacity style={{ justifyContent:'center',alignItems:"flex-start",margin:5}}
+                                                onPress={()=> navigation.navigate('Settings')}>
+                                                <Feather name="settings" size={32} />
+                                    </TouchableOpacity>
+                                 <TouchableOpacity style={{ justifyContent:'flex-end',margin:5}}
+                                                onPress={()=> navigation.navigate('Chat')}>
+                                           <AntDesign name="wechat" size={32} />
+                             </TouchableOpacity>
+                        </View>
+                                
                         </View>
                         
 

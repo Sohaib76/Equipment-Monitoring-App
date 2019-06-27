@@ -72,6 +72,7 @@ export default class MainMenu extends React.Component {
     const chatimg = require("../assets/images/chat.png")
     const chatimg2 = require("../assets/images/chatBlue.png")
     const wall1 = require("../assets/images/wallpaper4.jpg")
+    const interventions = require("../assets/images/alertsInterventionsBlue.png")
 
     return (
        
@@ -165,7 +166,7 @@ export default class MainMenu extends React.Component {
                 
                 </View>
                 <View style= {{flex:5,  alignItems:'center',justifyContent:'center' }}>
-                    <CardMain bgColor="#00a7ed" title="Chat" imgsrc={chatimg2} navigation={navigation} whereTonavigate="Chat"/>
+                    <CardMain bgColor="#00a7ed" title="Interventions" imgsrc={interventions} navigation={navigation} whereTonavigate="AlertHistory"/>
                 </View>
             
             </View>
