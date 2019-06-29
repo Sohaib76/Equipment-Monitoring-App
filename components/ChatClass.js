@@ -14,7 +14,7 @@ export default class Chat extends React.Component {
 
     return (
               <View style={{flex:1}}>
-                  <TitleBar message={"Chat "} navigation={navigation}/>
+                  <TitleBar message={"Chat "} navigation={navigation} chatIcon={"false"}/>
                   <MyChat/>
               </View>
                 

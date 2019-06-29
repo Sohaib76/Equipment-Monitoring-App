@@ -70,8 +70,6 @@ componentWillMount(){
     // AsyncStorage.removeItem("cardYellowReject")
     // AsyncStorage.removeItem("cardRed")
     // AsyncStorage.removeItem("cardRedReject")
-    // AsyncStorage.removeItem("causeOfRejectionR")
-
     AsyncStorage.setItem("cardYellow" , this.props.navigation.state.params.cardYAccept)
   
     AsyncStorage.setItem("cardYellowReject" , this.props.navigation.state.params.cardYReject)
@@ -80,9 +78,6 @@ componentWillMount(){
     AsyncStorage.setItem("cardRed" , this.props.navigation.state.params.cardRAccept)
    
     AsyncStorage.setItem("cardRedReject" , this.props.navigation.state.params.cardRReject)
-
-    AsyncStorage.setItem("causeOfRejectionR" , this.props.navigation.state.params.causeOfRejectionR )
-    AsyncStorage.setItem("causeOfRejectionY" , this.props.navigation.state.params.causeOfRejectionY )
     
 }
 
@@ -100,13 +95,7 @@ componentDidMount(){
     AsyncStorage.getItem("cardRedReject").then((value) => {
         this.setState({"cardRedReject": value});
     }).done();
-
-    AsyncStorage.getItem("causeOfRejectionR").then((value) => {
-        this.setState({"causeOfRejectionR": value});
-    }).done();
-    AsyncStorage.getItem("causeOfRejectionY").then((value) => {
-        this.setState({"causeOfRejectionY": value});
-    }).done();
+    
 }
 
 
@@ -446,9 +435,9 @@ componentDidMount(){
 
                                             <View style={{ justifyContent:'center',alignItems:'flex-start', flexDirection:'column'}}>
 
-                                                        <Text style={{fontWeight:'bold',fontSize:20}}>Accepted : 06/28</Text>
+                                                        <Text style={{fontWeight:'bold',fontSize:20}}>Accepted : 06/26</Text>
                                                         <Text>Equipment : ID5342 </Text>
-                                                        <Text>Location : Benguerir</Text>
+                                                        <Text>Location : London</Text>
 
                                                         
 
@@ -638,8 +627,7 @@ componentDidMount(){
                                     {   this.state.cardYellow === "secondCard"  &&
                                         <TouchableOpacity activeOpacity = { 0.7 } 
 
-                                        //this.expand_collapse_Function2
-                                        onPress = { (this.expand_collapse_Function2 )} 
+                                        onPress = { this.expand_collapse_Function2 } 
 
                                         >
 
@@ -691,7 +679,7 @@ componentDidMount(){
 
                                                 <View style={{ justifyContent:'center',alignItems:'flex-start', flexDirection:'column'}}>
 
-                                                            <Text style={{fontWeight:'bold',fontSize:20}}>Accepted : 06/28</Text>
+                                                            <Text style={{fontWeight:'bold',fontSize:20}}>Accepted : 06/26</Text>
 
                                                             <Text>Equipment : ID6124</Text>
                                                             <Text>Location : Malaysia</Text>
@@ -851,7 +839,7 @@ componentDidMount(){
                 {  this.state.cardRedReject === "firstCard"  &&
                                                 <TouchableOpacity activeOpacity = { 0.7 } 
 
-                                                                onPress = {() => {alert("You've rejected the request")} } 
+                                                                onPress = { this.expand_collapse_Function3 } 
 
                                                                 >
 
@@ -904,9 +892,9 @@ componentDidMount(){
 
                                                                         <View style={{ justifyContent:'center',alignItems:'flex-start', flexDirection:'column'}}>
 
-                                                                                    <Text style={{fontWeight:'bold',fontSize:20}}>Rejected : 06/28</Text>
+                                                                                    <Text style={{fontWeight:'bold',fontSize:20}}>Rejected : 06/26</Text>
                                                                                     <Text>Equipment : ID5342  {this.props.navigation.state.params.cardRAccept}</Text>
-                                                                                    <Text>Cause: {this.state.causeOfRejectionR}</Text>
+                                                                                    <Text>Location : London</Text>
 
                                                                                     
 
@@ -946,7 +934,7 @@ componentDidMount(){
 
                                                             }
 
-                                  {/* <View    style = {{ height: this.state.updatedHeight3, overflow: 'hidden' ,flexDirection:'row',justifyContent:'space-around'}}>
+                                  <View    style = {{ height: this.state.updatedHeight3, overflow: 'hidden' ,flexDirection:'row',justifyContent:'space-around'}}>
                                                                 <View style={{height:350}}>
                             
                                                                 <View style={{justifyContent:'center'}}>
@@ -1026,7 +1014,6 @@ componentDidMount(){
                             
 
                                                                 </View>
- */}
 
 
 
@@ -1061,21 +1048,20 @@ componentDidMount(){
 
 
 
-
-                                        
 
 
                                         
-                {/********************Yellow Card Rejected *************/}
+
+
+                                        
+                {/********************Red Card Rejected *************/}
 
 
                                                 
                 {  this.state.cardYellowReject === "secondCard"  &&
                                                 <TouchableOpacity activeOpacity = { 0.7 } 
 
-                                                                //this.expand_collapse_Function4
-
-                                                                onPress = { () => {alert("You've rejected the requested")} } 
+                                                                onPress = { this.expand_collapse_Function4 } 
 
                                                                 >
 
@@ -1128,9 +1114,9 @@ componentDidMount(){
 
                                                                         <View style={{ justifyContent:'center',alignItems:'flex-start', flexDirection:'column'}}>
 
-                                                                                    <Text style={{fontWeight:'bold',fontSize:20}}>Rejected : 06/28</Text>
+                                                                                    <Text style={{fontWeight:'bold',fontSize:20}}>Rejected : 06/26</Text>
                                                                                     <Text>Equipment : ID6124  </Text>
-                                                                                    <Text>Cause : {this.state.causeOfRejectionY}</Text>
+                                                                                    <Text>Location : Malaysia</Text>
 
                                                                                     
 
@@ -1170,7 +1156,7 @@ componentDidMount(){
 
                                                             }
 
-                                  {/* <View    style = {{ height: this.state.updatedHeight4, overflow: 'hidden' ,flexDirection:'row',justifyContent:'space-around'}}>
+                                  <View    style = {{ height: this.state.updatedHeight4, overflow: 'hidden' ,flexDirection:'row',justifyContent:'space-around'}}>
                                                                 <View style={{height:350}}>
                             
                                                                 <View style={{justifyContent:'center'}}>
@@ -1249,7 +1235,7 @@ componentDidMount(){
                                                         </View>
                             
 
-                                                                </View> */}
+                                                                </View>
 
 
 

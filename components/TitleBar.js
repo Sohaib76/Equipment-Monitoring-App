@@ -91,10 +91,14 @@ export default class TitleBar extends React.Component {
                                                 onPress={()=> navigation.navigate('Settings')}>
                                                 <Feather name="settings" size={32} />
                                     </TouchableOpacity>
-                                 <TouchableOpacity style={{ justifyContent:'flex-end',margin:5}}
-                                                onPress={()=> navigation.navigate('Chat')}>
-                                           <AntDesign name="wechat" size={32} />
-                             </TouchableOpacity>
+
+                                    {this.props.chatIcon !== 'false'  &&
+                                            <TouchableOpacity style={{ justifyContent:'flex-end',margin:5}}
+                                            onPress={()=> navigation.navigate('Chat')}>
+                                            <AntDesign name="wechat" size={32} />
+                                        </TouchableOpacity>
+                                    }
+                                 
                         </View>
                                 
                         </View>
